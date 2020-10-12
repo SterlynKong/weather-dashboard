@@ -39,7 +39,7 @@ function getWeather(searchValue) {
         // create current weather content
         var titleEl = document.createElement("h3")
         titleEl.classList.add("card-title");
-        titleEl.textContent = data.name + "-" + new Date().toLocaleDateString();
+        titleEl.textContent = data.name + " - " + moment().format("llll");
         var cardEl = document.createElement("div");
         cardEl.classList.add("card");
         var tempEl = document.createElement("p");
@@ -50,6 +50,7 @@ function getWeather(searchValue) {
         humidEl.classList.add("card-text");
         tempEl.textContent = "Temperature: " + Math.floor(data.main.temp) + " °C";
         humidEl.textContent = "Humidity: " + data.main.humidity + " %";
+        windEl.textContent = "Windspeed: " + data.wind.speed + " KPH";
         var cardBodyEl = document.createElement("div");
         cardBodyEl.classList.add("card-body");
         var imgEl = document.createElement("img");
@@ -92,7 +93,7 @@ function getForecast(searchValue) {
         for (var i = 0; i < data.list.length; i++) {
 
             // use forecasts for 10:00:00 am
-            if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
+            if (data.list[i].dt_txt.indexOf("12:00:00") !== -1) {
 
                 // create DOM Elememts for forecast data
                 var colEl = document.createElement("div");
@@ -101,32 +102,31 @@ function getForecast(searchValue) {
                 cardEl.classList.add("card", "bg-primary", "text-white");
                 var windEl = document.createElement("P");
                 windEl.classList.add("card-text");
-                windEl.textContent = " Wind speed: " + data.list[i].wind.speed + "kmph";
+                windEl.textContent = " Wind speed: " + data.list[i].wind.speed + "KPH";
                 var humidityEl = document.createElement("p");
                 humidityEl.classList.add("card-text");
-                humidityEl.textContent = "Humidity: " + data.list[i].main.humdity + " %";
+                humidityEl.textContent = "Humidity: " + data.list[i].main.humidity + " %";
                 var bodyEl = document.createElement("div");
                 bodyEl.classList.add("card-body", "p-2");
                 var titleEl = document.createElement("h5");
                 titleEl.classList.add("card-title");
-                titleEl.textContent = new Date(data.list[i].dt_txt).toLocaleDateString();
+                titleEl.textContent = moment(data.list[i].dt_txt).format("dddd");
                 var imgEl = document.createElement("img");
                 imgEl.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                 var p1El = document.createElement("p");
                 p1El.classList.add("card-text");
                 p1El.textContent = "Temp: " + Math.floor(data.list[i].main.temp_max) + "°C";
-                var p2El = document.createElement("p");
-                p2El.classList.add("card-text");
-                p2El.textContent = "Humidity: " + data.list[i].main.humidity + "%";
+                // var p2El = document.createElement("p");
+                // p2El.classList.add("card-text");
+                // p2El.textContent = "Humidity: " + data.list[i].main.humidity + "%";
 
                 // add forecast data to cards and display on page
                 colEl.appendChild(cardEl)
                 bodyEl.appendChild(titleEl);
                 bodyEl.appendChild(imgEl);
-                bodyEl.appendChild(windEl);
-                bodyEl.appendChild(humidityEl);
                 bodyEl.appendChild(p1El);
-                bodyEl.appendChild(p2El);
+                bodyEl.appendChild(humidityEl);
+                bodyEl.appendChild(windEl);
                 cardEl.appendChild(bodyEl);
                 forecastEl.appendChild(colEl);
             }

@@ -2,16 +2,6 @@ body {
     font-family: 'Rubik', sans-serif;
 }
 
-.divider {
-    height: 50px;
-}
-
-/* Header styles */
-
-.navbar {
-    background-color: #2C4251;
-}
-
 .navbar-brand.h1 {
     color: #FF784F;
 }
