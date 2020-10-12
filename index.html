@@ -2,60 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <title>Simple Weather Forecast</title>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1>Weather Dashboard</h1>
+    <header class="container-fluid text-center text-white bg-dark p-2">
+        <h1>Simple Weather Forecast</h1>
     </header>
-    <!-- Main content -->
-    <main class="container">
+
+    <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <aside class="col-sm-3">
-                <!-- Search -->
-                <form>
-                    <h5>Search for a city:</h5>
-                    <div class="input-group mb-3">
-                        <input id="searchInput" type="text" class="form-control" placeholder="Enter City Name">
-                        <div class="input-group-append">
-                            <button id="searchBtn" class="btn btn-outline-secondary"><i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <!-- Previously Searched -->
-                <div id="search-history">
-                    <!-- history goes here -->
+            <aside class="col-lg-3 bg-light">
+                <h5 class="mt-1">Search by city:</h5>
+                <div class="form-inline form-group">
+                    <input class="form-control" type="text" id="search-value" />
+                    <button class="btn btn-primary" id="search-button">
+                        <i class="fa fa-search"> </i>
+                    </button>
                 </div>
+
+                <ul class="list-group history"></ul>
             </aside>
-            <div class="col-sm-9">
-                <div class="mt-3" id="current-weather">
-                    <!-- current weather goes here -->
-                </div>
-                <div class="row mt-3" id="5-day-forecast">
-                    <!-- 5 Day forecast goes here -->
-                </div>
+            <div class="col-lg-9">
+                <div id="today" class="mt-3"></div>
+                <div id="forecasts" class="row mt-3"></div>
             </div>
         </div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <script src="https://momentjs.com/downloads/moment.js"></script>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
