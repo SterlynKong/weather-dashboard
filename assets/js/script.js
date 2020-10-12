@@ -25,7 +25,7 @@ function makeRow(searchValue) {
 // fetch weather data for city from openweather api
 function getWeather(searchValue) {
     fetch(
-        "http://api.openweathermap.org/data/2.5/weather?q=" +
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
         searchValue +
         apiKey +
         "&units=metric"
@@ -75,7 +75,7 @@ function getWeather(searchValue) {
 // get 5 day forecast from openweather api
 function getForecast(searchValue) {
     fetch(
-        "http://api.openweathermap.org/data/2.5/forecast?q=" + 
+        "https://api.openweathermap.org/data/2.5/forecast?q=" + 
         searchValue +
         apiKey +
         "&units=metric"
