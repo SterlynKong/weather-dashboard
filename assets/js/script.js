@@ -48,7 +48,7 @@ function getWeather(searchValue) {
         windEl.classList.add("card-text");
         var humidEl = document.createElement("p");
         humidEl.classList.add("card-text");
-        tempEl.textContent = "Temperature: " + data.main.temp + " °C";
+        tempEl.textContent = "Temperature: " + Math.floor(data.main.temp) + " °C";
         humidEl.textContent = "Humidity: " + data.main.humidity + " %";
         var cardBodyEl = document.createElement("div");
         cardBodyEl.classList.add("card-body");
@@ -76,7 +76,8 @@ function getForecast(searchValue) {
     fetch(
         "http://api.openweathermap.org/data/2.5/forecast?q=" + 
         searchValue +
-        apiKey
+        apiKey +
+        "&units=metric"
     ).then(function (response) {
 
         return response.json();
@@ -113,7 +114,7 @@ function getForecast(searchValue) {
                 imgEl.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                 var p1El = document.createElement("p");
                 p1El.classList.add("card-text");
-                p1El.textContent = "Temp: " + data.list[i].main.temp_max + "°C";
+                p1El.textContent = "Temp: " + Math.floor(data.list[i].main.temp_max) + "°C";
                 var p2El = document.createElement("p");
                 p2El.classList.add("card-text");
                 p2El.textContent = "Humidity: " + data.list[i].main.humidity + "%";
