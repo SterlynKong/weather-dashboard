@@ -157,7 +157,7 @@ function getUVIndex(lat, lon) {
         } else if (data.value < 7) {
             buttonEl.classList.add("btn-warning");
         } else {
-            buttonEl.classList.add("btn-dange");
+            buttonEl.classList.add("btn-danger");
         }
         bodyEl.appendChild(uvEl);
         uvEl.appendChild(buttonEl);
